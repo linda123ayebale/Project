@@ -1,0 +1,61 @@
+{% extends "main.html" %}
+{% load static %}
+
+<title>
+    {% block title %}
+    Forgot password
+    {% endblock title %}
+</title>
+
+{% block content %}
+<main>
+  <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div  class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="card mb-3">
+
+            <div class="card-body">
+
+              <div class="icon">
+                <a href="/"><i class="bx bx-arrow-back" style="font-size: 40px;"></i></a>
+              </div>
+
+              <div class="container">
+
+               {% include 'accounts/logo.html' %}
+
+                <div class="pb-2">
+                  <h6 style="font-style: italic;" class="card-title text-center pb-0 fs-4">Enter Registered Email</h6>
+                </div>
+
+                <form class="row g-3 needs-validation" novalidate>
+
+                  <div class="col-12 pt-4">
+                    <div class="input-group has-validation">
+                      <input type="email" name="username" style="background-color: rgb(211, 241, 147);" placeholder="Email" class="form-control" id="yourUsername" required>
+                      <div class="invalid-feedback">Please enter your Registered Email.</div>
+                    </div>
+                  </div>
+
+                  <div class="col-12 py-5">
+                    <button class="btn w-100" style="background-color: rgb(241, 245, 241); color: blue;" type="submit">Verify Your Email</button>
+                  </div>                 
+                </form>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="col-12 pt-3">
+                <p style="text-align: center;" class="small mb-0 fw-bold">Check your email for verification</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+</main><!-- End #main -->
+{% endblock content %}

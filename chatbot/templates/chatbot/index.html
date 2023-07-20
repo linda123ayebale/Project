@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>
+    {% block title %}
+    Asking help
+    {% endblock title %}
+</title>
+
+ {% block content %}
+
+  <!-- ======= Header ======= -->
+  {% include 'header.html' %}
+ <!-- end of block --><br><br><br>
+
+<div >
+  <div class="profile-area">
+     <div class="container">
+       <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="img2"><img src="{% static 'assets/img/go.png' %}" alt=""> </div>
+              <div class="main-text pt-5">
+              <h2><a class="stretched-link" style="color: black" href="{% url 'chatbot:home' %}">Chat Bot</a></h2>
+              <p>I'm your assistant ask me anything about Makerere University</p>
+            </div>        
+          </div>
+         </div>
+
+         <div class="col-md-6">
+          <div class="card">
+            <div class="img2"><img src="{% static 'assets/img/go.png' %}" alt=""> </div>
+              <div class="main-text pt-5">
+              <h2><a class="stretched-link" style="color: black" href="{% url 'ar:home' %}">Location</a></h2>
+              <p>I'm your navigation assistant from your point of origin to your final destination</p>
+            </div>        
+          </div>
+         </div>
+      </div>
+     </div>
+   </div>
+   <!-- Add Font Awesome JS script if not already added -->
+</div>
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  
+  <!-- {% include 'footer.html' %} -->
+
+ {% endblock content %}

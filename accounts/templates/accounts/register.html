@@ -1,0 +1,64 @@
+{% extends "main.html" %}
+{% load static %}
+<title>
+    {% block title %}
+      Register
+    {% endblock title %}
+</title>
+{% block content %}
+<main>
+  <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">  
+          <div class="card">
+            <div class="card-body">
+              <div class="icon mr-0">
+                <a href="/"><i class="bx bx-arrow-back" style="font-size: 30px;"></i></a>
+              </div>
+
+              <div class="container">
+                
+                {% include 'accounts/logo.html' %}
+
+                <div class="pb-2">
+                  <h5 class="card-title text-center pb-0 fs-4" style="color: black;">Create an Account</h5>
+                </div>
+
+                <form method="POST" action="" class="row g-3 needs-validation" novalidate> 
+                  {% csrf_token %}
+
+                  {% if messages %}
+                    <ul class="messages">
+                        {% for message in messages %}
+                            <p{% if message.tags %} style="font-size: 10px; color: brown;" class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                        {% endfor %}
+                    </ul>
+                  {% endif %}
+
+                  {% for field in form %}
+
+                    {{field}}
+
+                  {% endfor %}
+                  
+                  <div class="col-12 pt-2 pb-5">
+                    <button id="btn1" style="background-color: rgb(241, 245, 241); color: blue;" class="btn btn-primary w-100" type="submit">SUBMIT</button>
+                  </div>
+                </form>
+              </div>
+              </div>
+              <div class="card">
+                <div class="col-12 pt-3">
+                  <p style="text-align: center;" class="small mb-0">Already have account? <a href="{% url 'accounts:login' %}">Login</a></p>
+                </div>
+              </div>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+{% endblock content %}
+
+

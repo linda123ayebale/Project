@@ -1,0 +1,46 @@
+{% load static %}
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="" class="logo d-flex align-items-center">
+        <img src="{% static 'assets/img/go.png' %}" alt="">
+      </a>
+    </div>
+
+    <nav class="header-nav ms-auto">
+      <ul class="d-flex align-items-center">
+        <li class="nav-item dropdown pe-3">
+          {% if request.user.is_authenticated %}
+           <li><a class="mr-5" style="font-size: 12px;" href="{% url 'chatbot:home' %}">Hy, {{request.user}}</a></li>
+          {% endif %}
+          <li><a class="mr-5" href="{% url 'chatbot:landing' %}"><i style="font-size: 20px; color: black;" class="ri-home-7-fill"></i></a></li>
+          <li><a class="mr-5" href="{% url 'chatbot:home' %}"><i style="font-size: 20px; color: black;" class="fa fa-comment-o" aria-hidden="true"></i></a></li>
+          <li><a class="mr-2" href="{% url 'ar:home' %}"><i style="font-size: 20px; color: rgb(241, 110, 110);" class="ri-map-pin-2-fill"></i></a></li>
+          <a class="nav-link nav-profile d-flex align-items-center mr-2 pe-0" href="#" data-bs-toggle="dropdown">
+            <i style="font-size: 30px;" class="bi bi-list"></i>
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+            
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="">
+                <i class="bi bi-person"></i>
+                <span>profile</span>
+              </a>
+            </li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="{% url 'accounts:logout' %}">
+                <i class="bi bi-box-arrow-right"></i>
+                <span>Sign Out</span>
+              </a>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </header>

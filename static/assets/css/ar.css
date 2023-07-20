@@ -1,0 +1,157 @@
+body{
+	font-family: "Poppins", sans-serif;
+	background: #ddd;
+}
+
+.jumbotron{
+	background-color: transparent;
+	margin: 0;
+	padding: 10px;
+	padding-top: 80px;
+}
+
+.jumbotron h1{
+	font-size: 2em;
+	font-weight: bold;
+
+}
+
+.jumbotron h1{
+	text-align: center;
+
+}
+
+.jumbotron p{
+	font-size: 1em;
+}
+
+#googleMap{
+	width: 80px;
+	height: 400px;
+	margin: 20px auto;
+}
+
+#output {
+	text-align: center;
+	font-size: 2em;
+	margin: 20px auto;
+}
+
+
+
+.input_box{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box{
+	width: 100%;
+	background-color: #fff;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-radius: 10px;
+}
+
+.box input{
+	border: none;
+	outline: none;
+	border-radius: 16px 16px 19px;
+	padding: 10px;
+	font-size: 20px;
+}
+
+.box .button{
+	background-color: #fff;
+	border-radius: 500px;
+	margin: 0px 8px;
+	padding: 6px;
+	pointer-events: none;
+	opacity: 0;
+	cursor: pointer;
+	/* pointer-envents: none;
+	opacity: 0; */
+
+	cursor: pointer;
+	border: none;
+}
+
+.box .image{
+	width: 30px;
+	height: 30px;
+	display: block;
+	margin: 5px 5px 3px 2px;
+	border-radius:100%;
+	/* pointer-envents: none; */
+	/* opacity: 0; */
+
+	transition: 0.3s;
+}
+
+/*==========================================================================  */
+
+
+
+.profile-area{
+    padding: 80px 0;
+
+}
+
+.card{
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    overflow: hidden;
+    border-radius: 15px;
+    margin-top: 20px;
+ }
+
+
+.img2 {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 1;
+  width: 95px;
+  height: 70px;
+  border-radius: 50%;
+  border: 7px solid #fff;
+  margin-top: 70px; /* Adjust this value to control the overlap */
+  overflow: hidden; /* Clip the image that extends outside the card */
+}
+
+.img2 img {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+}
+
+.card:hover{
+  border-color: darkgreen;
+  transition: .7s;
+  border-radius: 40px;
+  background-color: #32cd32;
+}
+
+.main-text{
+	padding: 30px 0;
+	text-align: center;
+}
+
+.main-text h2{
+	text-transform: uppercase;
+	font-weight: 900;
+	font-size: 20px;
+	margin: 0 0 20px;
+}
+.main-text p{
+	font-size: 16px;
+	padding-bottom: 20px;
+	padding: 50px;
+}
+
+
+
