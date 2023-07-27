@@ -15,7 +15,7 @@
 <br><br>
 <div class="container-fluid pt-5">
   <div class="card flex-grow-1">
-    <div style="background-color: #98C237;" class="card-body messages-box pt-5">
+    <div style="background-color: #32cd32; font-size: 20px;" class="card-body messages-box pt-5">
       <ul class="list-unstyled messages-list">
         {% for chat in chats %}
           {% if chat.user == request.user %}
@@ -49,9 +49,9 @@
   <form class="message-form fixed-bottom d-flex justify-content-center mb-5">
     {% csrf_token %}
     <div class="input-group" style="width: 80%;">
-      <input style="padding: 30px;" type="text" class="form-control message-input" placeholder="Type your message...">
+      <input style="padding: 30px; font-size: 18px;" type="text" class="form-control message-input" placeholder="Type your message...">
       <div class="input-group-append">
-        <button type="submit" class="btn btn-primary btn-send">Send</button>
+        <button type="submit" class="btn btn-lg btn-primary btn-send">Send</button>
       </div>
     </div>
   </form>

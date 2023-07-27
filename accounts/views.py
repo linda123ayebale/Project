@@ -26,19 +26,25 @@ def registerViews(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
+            
+            # Check if the password is the same as the username
+            if user.username == form.cleaned_data.get("password1"):
+                form.add_error('password1', 'Password should not be the same as the username.')
+                context = {'form': form}
+                return render(request, 'accounts/register.html', context)
+            
             user.save()
-            # login in user direct on registration
             user = authenticate(
-                request, username=user.username, password=request.POST['password1']
+                request, username=user.username, password=form.cleaned_data['password1']
             )
 
             if user is not None:
                 login(request, user)
-                return redirect('chatbot:home')
+                return redirect("chatbot:landing")
             else:
-                messages.error(request, 'Oops, something went wrong! try again later')
+                messages.error(request, 'Oops, something went wrong! Please try again later.')
 
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'accounts/register.html', context)
 
 

@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+
+<title>
+    {% block title %}
+        My Assistant
+    {% endblock title %}
+</title>
+
+{% block content %}
+
+<!-- ======= Header ======= -->
+{% include 'header.html' %}
+<!-- End Header -->
+
+<style type="text/css">
+  #googleMap {
+    width: 100%;
+    height: 350px;
+  }
+</style>
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="container-fluid">
+      <div id="googleMap"></div>
+
+      <div id="output"></div>
+    </div>
+
+    <form class="form-horizontal">
+      <div class="row">
+        <div class="col-xl-6 col-sm-4 box">
+          <input type="text" id="from" class="input form-control" placeholder="Origin" required>
+          <a class="button"><img src="{% static '/assets/img/camera.png' %}" class="image"></a>
+        </div>
+        <div class="col-xl-6 col-sm-4 box mt-4">
+          <input type="text" id="to" placeholder="Destination" class="input form-control" name="" required>
+        </div>
+      </div>
+    </form>
+
+    <div class="row mt-4">
+      <div class="col-12 d-flex justify-content-center align-items-center">
+        <button class="btn btn-primary btn-lg" style="width: 500px"><i style="font-size: 30px;" class="fas fa-directions"></i></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initMap() {
+    var myLatLng = { lat: 0.349998, lng: 32.567164398 };
+    var mapOptions = {
+      center: myLatLng,
+      zoom: 7,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+
+    // create map
+    var map = new google.maps.Map(
+      document.getElementById("googleMap"),
+      mapOptions
+    );
+  }
+</script>
+
+<script>
+  function loadMapScript() {
+    var script = document.createElement("script");
+    script.src =
+      "https://maps.googleapis.com/maps/api/js?key=AIzaSyChBSjTjpuifBTsqGopU6jn3ktzxzbluyo&callback=initMap";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+
+  // Call the function to load the map script
+  loadMapScript();
+</script>
+
+
+<!-- Include the Maps JavaScript API with its API key -->
+
+<!-- Include the Places API with its API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-jd7oyostm5SS8JCzcQpHqNBTv9rszjI&libraries=places"></script>
+
+<!-- Include the Directions API with its API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAEk6BCW_-umgHnqlIZ-bikTpF1D9CMVy8"></script>
+
+<!-- Include the Distance Matrix API with its API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ-J2N1HGVCiBXOA4UoFTRPHPyzy_x5lo"></script>
+
+<!-- Include the map javascript with its API key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN_aSMYWcLneYoxFT0SftMymjnCxczErA"></script>
+
+</body>
+</html>
+{% endblock content %}

@@ -14,4 +14,5 @@ class CustomUserCreationForm(UserCreationForm):
         self.fields['email'].widget.attrs.update({'class':'form-control', 'placeholder':'Email','style':'background-color: rgb(211, 241, 147); border-radius: 10px','required':'True'})
         self.fields['password1'].widget.attrs.update({'class':'form-control', 'placeholder':'Password','style':'background-color: rgb(211, 241, 147); border-radius: 10px'})
         self.fields['password2'].widget.attrs.update({'class':'form-control', 'placeholder':'Confirm Password','style':'background-color: rgb(211, 241, 147); border-radius: 10px'})
+        
 
