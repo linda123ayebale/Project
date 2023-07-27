@@ -19,66 +19,69 @@
     height: 350px;
   }
 </style>
+<br /> <br /> <br />
 
-<div class="jumbotron">
-  <div class="container">
-    <div class="container-fluid">
-      <div id="googleMap"></div>
 
-      <div id="output"></div>
-    </div>
+    <div class="jumbotron">
+        <div class="container">
+            <form class="form-horizontal">
+                <div class="form-group">                    
+                    <label for="from" class="col-md-2 control-label"><i style="font-size: 30px; color: red;" class="far fa-dot-circle"></i></label>
+                    <div class="col-md-10">
+                         <button onclick="getUserLocation()">Get My Location</button>
+                    </div>
+               </div>
+                <div class="form-group">
+                    <label for="from" class="col-md-2 control-label"><i style="font-size: 30px;" class="far fa-dot-circle"></i></label>
+                    <div class="col-md-10">
+                        <input style="font-size: 18px; padding: 20px;" type="text" id="from" placeholder="Origin" class="form-control">
+                    </div>
+               </div>
+               <div class="form-group">
 
-    <form class="form-horizontal">
-      <div class="row">
-        <div class="col-xl-6 col-sm-4 box">
-          <input type="text" id="from" class="input form-control" placeholder="Origin" required>
-          <a class="button"><img src="{% static '/assets/img/camera.jpg' %}" class="image"></a>
+                    <label for="to" class="col-md-2 control-label"><i style="font-size: 30px;" class="fas fa-map-marker-alt"></i></label>
+                    <div class="col-md-10">
+                        <input style="font-size: 18px; padding: 20px;" type="text" id="to" placeholder="Destination" class="form-control">
+                    </div>
+
+                 </div>
+
+            </form>
+
+            <!-- <form class="form-horizontal">
+              <div class="row">
+                <div class="col-xl-6 col-sm-4 box">
+                  <input type="text" id="from" class="input form-control" placeholder="Origin" required>
+                  <a class="button"><img src="{% static '/assets/img/camera.png' %}" class="image"></a>
+                </div>
+                <div class="col-xl-6 col-sm-4 box mt-4">
+                  <input type="text" id="to" placeholder="Destination" class="input form-control" name="" required>
+                </div>
+              </div>
+            </form> -->
+
+            <div class="col-md-offset-2 col-xs-10 d-flex justify-content-center align-items-center">
+                <button style="width: 500px" class="btn btn-info btn-lg" onclick="calcRoute();"><i style="font-size: 30px;" class="fas fa-directions"></i></button>
+            </div>
+
+        <!-- <div class="row mt-4">
+            <div class="col-12 d-flex justify-content-center align-items-center">
+              <button class="btn btn-primary btn-lg" style="width: 500px" onclick="calcRoute();"><i style="font-size: 30px;" class="fas fa-directions"></i></button>
+            </div>
+          </div> -->
+
+
         </div>
-        <div class="col-xl-6 col-sm-4 box mt-4">
-          <input type="text" id="to" placeholder="Destination" class="input form-control" name="" required>
+        <div class="container-fluid">
+            <div id="googleMap">
+
+            </div>
+            <div id="output">
+
+            </div>
         </div>
-      </div>
-    </form>
 
-    <div class="row mt-4">
-      <div class="col-12 d-flex justify-content-center align-items-center">
-        <button class="btn btn-primary btn-lg" style="width: 500px"><i style="font-size: 30px;" class="fas fa-directions"></i></button>
-      </div>
     </div>
-  </div>
-</div>
-
-<script>
-  function initMap() {
-    var myLatLng = { lat: 0.349998, lng: 32.567164398 };
-    var mapOptions = {
-      center: myLatLng,
-      zoom: 7,
-      mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-
-    // create map
-    var map = new google.maps.Map(
-      document.getElementById("googleMap"),
-      mapOptions
-    );
-  }
-</script>
-
-<script>
-  function loadMapScript() {
-    var script = document.createElement("script");
-    script.src =
-      "https://maps.googleapis.com/maps/api/js?key=AIzaSyChBSjTjpuifBTsqGopU6jn3ktzxzbluyo&callback=initMap";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-  }
-
-  // Call the function to load the map script
-  loadMapScript();
-</script>
-
 
 <!-- Include the Maps JavaScript API with its API key -->
 
@@ -91,9 +94,11 @@
 <!-- Include the Distance Matrix API with its API key -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBJ-J2N1HGVCiBXOA4UoFTRPHPyzy_x5lo"></script>
 
-<!-- Include the Geocoding API with its API key -->
+<!-- Include the map javascript with its API key -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAN_aSMYWcLneYoxFT0SftMymjnCxczErA"></script>
 
 </body>
 </html>
 {% endblock content %}
+
+
